@@ -20,12 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module complex_multiplier # (parameter AWIDTH = 16, BWIDTH = 18)
+module complex_multiplier # (parameter AWIDTH = 16, BWIDTH = 16)
 (
     input clk,
     input signed [AWIDTH-1:0] ar, ai,
     input signed [BWIDTH-1:0] br, bi,
-    output signed [AWIDTH+BWIDTH:0] pr, pi
+    output signed [(AWIDTH+BWIDTH)-1:0] pr, pi
 );
 
     reg signed [AWIDTH-1:0] ai_d, ai_dd;
