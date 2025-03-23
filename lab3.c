@@ -1,4 +1,4 @@
-#include <xil_io.h>  // Include Xilinx I/O functions
+#include <xil_io.h>   // Include Xilinx I/O functions
 #include <stdio.h>    // Include standard I/O functions
 
 #define AR_ADDR 0x43C00008 // Address for 'ar'
@@ -10,21 +10,25 @@
 
 int main() {
     short ar, ai, br, bi;  // Declare inputs as short data type (16-bit signed integer)
-    int pr, pi;             // Declare outputs as int data type (32-bit signed integer)
+    int pr, pi;            // Declare outputs as int data type (32-bit signed integer)
 
     while (1) {
         // Ask for input values
-        printf("Enter value for ar (short, 16-bit): ");
+        printf("\nEnter value for ar (short, 16-bit): ");
         scanf("%hd", &ar);  // Input ar (16-bit signed short)
+        printf("%hd ", ar);
 
-        printf("Enter value for ai (short, 16-bit): ");
+        printf("\nEnter value for ai (short, 16-bit): ");
         scanf("%hd", &ai);  // Input ai (16-bit signed short)
+        printf("%hd ", ai);
 
-        printf("Enter value for br (short, 16-bit): ");
+        printf("\nEnter value for br (short, 16-bit): ");
         scanf("%hd", &br);  // Input br (16-bit signed short)
+        printf("%hd ", br);
 
-        printf("Enter value for bi (short, 16-bit): ");
+        printf("\nEnter value for bi (short, 16-bit): ");
         scanf("%hd", &bi);  // Input bi (16-bit signed short)
+        printf("%hd ", bi);
 
         // Write the input values to memory at the specified addresses
         Xil_Out32(AR_ADDR, ar);  // Write ar to address 0x43C0_0008
@@ -37,8 +41,8 @@ int main() {
         pi = Xil_In32(PI_ADDR);  // Read pi from address 0x43C0_0004
 
         // Print the output values
-        printf("Multiplier output pr = %d\n", pr);  // Output real part
-        printf("Multiplier output pi = %d\n", pi);  // Output imaginary part
+        printf("\nMultiplier output pr = %d", pr);  // Output real part
+        printf("\nMultiplier output pi = %d", pi);  // Output imaginary part
     }
 
     return 0;
